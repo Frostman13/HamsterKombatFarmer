@@ -173,7 +173,6 @@ class BotFarmer(BaseFarmer):
         result = self.get(URL_DAILY_REWARD, return_codes=(404,))
         if result.status_code == 200:
             self.post(URL_DAILY_REWARD)
-            {"ordinal":31,"reward":{"passes":7,"points":"70"}}
             msg_data = result.json()['days'][-1]
             self.log(MSG_DAILY_REWARD.format(days=msg_data['ordinal'],
                                              passes=msg_data['reward']['passes'],
